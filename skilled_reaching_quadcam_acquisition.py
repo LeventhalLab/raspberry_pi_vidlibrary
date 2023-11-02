@@ -13,6 +13,7 @@ def create_vid_name(rat_num, task='pavlovian', parent_folder='/home/levlab/data'
     rat_ID = 'R{:04d}'.format(rat_num)
     vid_datetime = datetime.now()
     
+    
     session_datestr = vid_datetime.strftime('%Y%m%d')
     session_name = '_'.join([rat_ID, session_datestr])
     
@@ -71,7 +72,13 @@ def record_calibration_video(picam2, vid_name, ts_name, duration=5, fps=25):
 #########################################################################################
 # HERE BEGINS THE CODE THAT SHOULD BE MODIFIED FOR EACH EXPERIMENT - RAT NUMBER, ETC.
 ######################################################################################
-rat_num = 448
+rat_num = 514
+
+task = 'sr'
+# task = 'srchrim'
+# task = 'srchrimpost'
+# parent_folder = '/home/levlab/data'
+
 calibration_fps = 25
 task_fps = 20    # doesn't do anything if external trigger is on
 calibration_duration = 10
@@ -88,8 +95,7 @@ set_trig=True
 
 os.system(stop_ext_trig_cmd)
 
-task = 'skilledreaching'
-# parent_folder = '/home/levlab/data'
+
 parent_folder = '/media/levlab/T7'
 
 input("press <Enter> when ready to record calibration video")
